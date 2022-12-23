@@ -21,32 +21,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtNombreR"
+        android:id="@+id/txtIDRead"
         android:layout_width="225dp"
         android:layout_height="45dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/fondo_edittext"
         android:ems="10"
-        android:hint="@string/nombre"
+        android:hint="@string/ID"
         android:inputType="textPersonName"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <EditText
-        android:id="@+id/txtApellidoR"
-        android:layout_width="225dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/fondo_edittext"
-        android:ems="10"
-        android:hint="@string/apellido"
-        android:inputType="textPersonName"
-        android:paddingStart="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreR" />
 
     <TextView
         android:id="@+id/textView6"
@@ -208,7 +194,7 @@
         android:id="@+id/bttnBuscar"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/bttn_redondo_black"
         android:onClick="buscar"
         android:text="@string/buscar"
@@ -217,6 +203,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellidoR" />
+        app:layout_constraintTop_toBottomOf="@+id/txtIDRead" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

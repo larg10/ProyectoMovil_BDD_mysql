@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 public class Leer extends AppCompatActivity {
 
-    EditText getNombre, getApellido;
+    EditText getID;
     TextView txtNombre, txtApellido, txtEdad, txtGenero;
     RequestQueue requestQueue;
 
@@ -31,8 +31,7 @@ public class Leer extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
-        getNombre = (EditText) findViewById(R.id.txtNombreR);
-        getApellido = (EditText) findViewById(R.id.txtApellidoR);
+        getID = (EditText) findViewById(R.id.txtIDRead);
 
         txtNombre = (TextView) findViewById(R.id.txtNombre);
         txtApellido = (TextView) findViewById(R.id.txtApellido);
@@ -43,24 +42,24 @@ public class Leer extends AppCompatActivity {
 
     public void buscar(View view) {
 
-        String nom,ap;
-        nom = getNombre.getText().toString();
-        ap = getApellido.getText().toString();
+        String id;
+        id = getID.getText().toString();
 
-        String URL2 = "http://192.168.0.14/intento_movil/fetch.php?Nombre=" + nom + "&Apellido=" + ap;
+        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,
             new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    String nombre, apellido, edad, genero;
+                    String nombre, apellido, edad, genero, id;
 
                     try {
                         nombre = response.getString("Nombre");
                         apellido = response.getString("Apellido");
                         edad = response.getString("Edad");
                         genero = response.getString("Género");
+                        id = response.getString("ID");
 
                         txtNombre.setText(nombre);
                         txtApellido.setText(apellido);

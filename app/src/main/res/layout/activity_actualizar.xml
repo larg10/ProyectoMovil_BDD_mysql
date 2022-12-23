@@ -10,7 +10,7 @@
         android:id="@+id/textView14"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/update"
         android:textAlignment="center"
@@ -21,38 +21,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtNombreUpdate"
+        android:id="@+id/txtIDUpdate"
         android:layout_width="225dp"
         android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/fondo_edittext"
         android:ems="10"
-        android:hint="@string/nombre"
+        android:hint="@string/ID"
         android:inputType="textPersonName"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <EditText
-        android:id="@+id/txtApellidoUpdate"
-        android:layout_width="225dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/fondo_edittext"
-        android:ems="10"
-        android:hint="@string/apellido"
-        android:inputType="textPersonName"
-        android:paddingStart="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreUpdate" />
-
     <Button
         android:id="@+id/bttnBuscarUpdate"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/bttn_redondo_black"
         android:onClick="buscarUpdate"
         android:text="@string/buscar"
@@ -61,7 +47,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellidoUpdate" />
+        app:layout_constraintTop_toBottomOf="@+id/txtIDUpdate" />
 
     <Button
         android:id="@+id/bttnActualizarUpdate"
@@ -82,7 +68,7 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="190dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/TuInfo"
@@ -98,7 +84,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="355dp"
         android:layout_height="225dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"

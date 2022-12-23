@@ -20,10 +20,10 @@ import java.util.Map;
 
 public class Insertar extends AppCompatActivity {
 
-    EditText nombre, apellido, edad, genero;
+    EditText nombre, apellido, edad, genero, ID;
     RequestQueue requestQueue;
 
-    private static final String URL1 = "http://192.168.0.14/intento_movil/save.php";
+    private static final String URL1 = "http://192.168.0.6/intento_movil/save.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class Insertar extends AppCompatActivity {
         apellido = (EditText) findViewById(R.id.txtApellidoCreate);
         edad = (EditText) findViewById(R.id.txtEdadCreate);
         genero = (EditText) findViewById(R.id.txtGeneroCreate);
+        ID = (EditText) findViewById(R.id.txtIDCreate);
 
         requestQueue = Volley.newRequestQueue(this);
     }
@@ -43,16 +44,18 @@ public class Insertar extends AppCompatActivity {
         String ap = apellido.getText().toString().trim();
         int ed = Integer.parseInt(edad.getText().toString().trim());
         String gen = genero.getText().toString().trim();
+        String id = ID.getText().toString().trim();
 
-        crear(nom,ap,ed,gen);
+        crear(nom,ap,ed,gen,id);
 
         nombre.setText("");
         apellido.setText("");
         edad.setText("");
         genero.setText("");
+        ID.setText("");
     }
 
-    private void crear( final String nombre, final String apellido, final int edad, final String genero) {
+    private void crear( final String nombre, final String apellido, final int edad, final String genero, final String ID) {
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
                 URL1,
@@ -72,10 +75,11 @@ public class Insertar extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
-                params.put("nombre", nombre);
-                params.put("apellido",apellido);
-                params.put("edad", String.valueOf(edad));
-                params.put("genero",genero);
+                params.put("Nombre", nombre);
+                params.put("Apellido",apellido);
+                params.put("Edad", String.valueOf(edad));
+                params.put("Género",genero);
+                params.put("ID",ID);
                 return params;
             }
         };

@@ -7,10 +7,24 @@
     tools:context=".Insertar">
 
     <EditText
+        android:id="@+id/txtIDCreate"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/fondo_edittext"
+        android:ems="10"
+        android:hint="@string/ID"
+        android:inputType="textPersonName"
+        android:paddingStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGeneroCreate" />
+
+    <EditText
         android:id="@+id/txtNombreCreate"
         android:layout_width="225dp"
         android:layout_height="45dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/fondo_edittext"
         android:ems="10"
         android:hint="@string/nombre"
@@ -24,7 +38,7 @@
         android:id="@+id/txtApellidoCreate"
         android:layout_width="225dp"
         android:layout_height="45dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/fondo_edittext"
         android:ems="10"
         android:hint="@string/apellido"
@@ -38,7 +52,7 @@
         android:id="@+id/txtEdadCreate"
         android:layout_width="225dp"
         android:layout_height="45dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/fondo_edittext"
         android:ems="10"
         android:hint="@string/edad"
@@ -52,7 +66,7 @@
         android:id="@+id/txtGeneroCreate"
         android:layout_width="225dp"
         android:layout_height="45dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/fondo_edittext"
         android:ems="10"
         android:hint="@string/genero"
@@ -66,7 +80,7 @@
         android:id="@+id/textView3"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="65dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/inserte"
         android:textAlignment="center"
@@ -80,7 +94,7 @@
         android:id="@+id/bttnInsertarBDD"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/bttn_redondo_blue"
         android:onClick="Create"
         android:text="@string/insertar"
@@ -89,5 +103,5 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtGeneroCreate" />
+        app:layout_constraintTop_toBottomOf="@+id/txtIDCreate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

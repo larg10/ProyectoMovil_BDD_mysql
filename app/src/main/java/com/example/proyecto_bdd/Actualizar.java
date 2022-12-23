@@ -20,14 +20,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Actualizar extends AppCompatActivity {
 
-    EditText etNombre, etApellido;
-    TextView tvNombre, tvApellido, tvEdad, tvGenero;
+    EditText etID, tvNombre, tvApellido, tvEdad, tvGenero;
     RequestQueue requestQueue;
     boolean busco = false;
 
@@ -40,8 +38,7 @@ public class Actualizar extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
-        etNombre = (EditText) findViewById(R.id.txtNombreUpdate);
-        etApellido = (EditText) findViewById(R.id.txtApellidoUpdate);
+        etID = (EditText) findViewById(R.id.txtIDUpdate);
 
         tvNombre = (EditText) findViewById(R.id.txtNombreUpdateAc);
         tvApellido = (EditText) findViewById(R.id.txtApellidoUpdateAc);
@@ -53,11 +50,10 @@ public class Actualizar extends AppCompatActivity {
 
     public void buscarUpdate(View view) {
 
-        String nom,ap;
-        nom = etNombre.getText().toString();
-        ap = etApellido.getText().toString();
+        String id;
+        id = etID.getText().toString();
 
-        String URL2 = "http://192.168.0.14/intento_movil/fetch.php?Nombre=" + nom + "&Apellido=" + ap;
+        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,
@@ -93,12 +89,13 @@ public class Actualizar extends AppCompatActivity {
 
     public void Editar(View view){
         if(busco == true) {
-            final String nom = tvNombre.getText().toString();
-            final String ape = tvApellido.getText().toString();
-            final String eda = tvEdad.getText().toString();
-            final String gen = tvGenero.getText().toString();
+            final String Nombre = tvNombre.getText().toString();
+            final String Apellido = tvApellido.getText().toString();
+            final String Edad = tvEdad.getText().toString();
+            final String Genero = tvGenero.getText().toString();
+            final String ID = etID.getText().toString();
 
-            String URLEdit = "http://192.168.0.14/intento_movil/edit.php";
+            String URLEdit = "http://192.168.0.6/intento_movil/edit.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URLEdit,
                     new Response.Listener<String>() {
                         @Override
@@ -116,10 +113,11 @@ public class Actualizar extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
-                    params.put("Nombre", nom);
-                    params.put("Apellido", ape);
-                    params.put("Edad", eda);
-                    params.put("Género",gen);
+                    params.put("Nombre", Nombre);
+                    params.put("Apellido", Apellido);
+                    params.put("Edad", Edad);
+                    params.put("Género",Genero);
+                    params.put("ID",ID);
                     return params;
                 }
             };

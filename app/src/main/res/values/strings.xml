@@ -20,6 +20,7 @@
     <string name="TuInfo">Su información:</string>
     <string name="buscar">Buscar</string>
     <string name="eliminar">Eliminar</string>
-    <string name="delete">Por favor busque el nombre y apellido de la persona a eliminar de la base de datos.</string>
-    <string name="update">Busque nombre y apellido de la persona a la cual se requiere actualizar sus datos. (No se puede editar nombre ni apellido)</string>
+    <string name="delete">Por favor busque el ID de la persona a eliminar de la base de datos.</string>
+    <string name="update">Busque el ID de la persona a la cual se requiere actualizar sus datos.</string>
+    <string name="ID">ID</string>
 </resources>

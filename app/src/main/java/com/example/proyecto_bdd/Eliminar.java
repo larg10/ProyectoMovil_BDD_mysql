@@ -26,12 +26,12 @@ import java.util.Map;
 
 public class Eliminar extends AppCompatActivity {
 
-    EditText etNombre, etApellido;
+    EditText etID;
     TextView tvNombre, tvApellido, tvEdad, tvGenero;
     RequestQueue requestQueue;
     boolean busco = false;
 
-    String nombre, apellido, edad, genero;
+    String nombre, apellido, edad, genero, ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,7 @@ public class Eliminar extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
-        etNombre = (EditText) findViewById(R.id.txtNombreDelete);
-        etApellido = (EditText) findViewById(R.id.txtApellidoDelete);
+        etID = (EditText) findViewById(R.id.txtIDDelete);
 
         tvNombre = (TextView) findViewById(R.id.txtNombre);
         tvApellido = (TextView) findViewById(R.id.txtApellido);
@@ -53,11 +52,11 @@ public class Eliminar extends AppCompatActivity {
 
     public void buscarDelete(View view) {
 
-        String nom,ap;
-        nom = etNombre.getText().toString();
-        ap = etApellido.getText().toString();
+        String id;
+        id = etID.getText().toString();
+        ID = id;
 
-        String URL2 = "http://192.168.0.14/intento_movil/fetch.php?Nombre=" + nom + "&Apellido=" + ap;
+        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,
@@ -70,6 +69,7 @@ public class Eliminar extends AppCompatActivity {
                             apellido = response.getString("Apellido");
                             edad = response.getString("Edad");
                             genero = response.getString("Género");
+                            //ID = response.getString("ID");
 
                             tvNombre.setText(nombre);
                             tvApellido.setText(apellido);
@@ -94,7 +94,7 @@ public class Eliminar extends AppCompatActivity {
     @SuppressLint("NotConstructor")
     public void Eliminar(View view){
         if(busco == true) {
-            String URLDelete = "http://192.168.0.14/intento_movil/delete.php";
+            String URLDelete = "http://192.168.0.6/intento_movil/delete.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URLDelete,
                     new Response.Listener<String>() {
                         @Override
@@ -103,8 +103,6 @@ public class Eliminar extends AppCompatActivity {
                             tvApellido.setText("");
                             tvEdad.setText("");
                             tvGenero.setText("");
-                            etNombre.setText("");
-                            etApellido.setText("");
 
                             busco = false;
                             Toast.makeText(Eliminar.this, "Eliminando...", Toast.LENGTH_SHORT).show();
@@ -119,8 +117,7 @@ public class Eliminar extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
-                    params.put("Nombre", nombre);
-                    params.put("Apellido", apellido);
+                    params.put("ID", ID);
                     return params;
                 }
             };
