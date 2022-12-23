@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Proyecto_bdd</string>
+    <string name="inicio">Seleccione la opción deseada para modificar sus datos de la base de datos.</string>
+    <string name="insertar">Insertar</string>
+    <string name="leer">Leer</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="borrar">Borrar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="edad">Edad</string>
+    <string name="genero">Género</string>
+    <string name="nombreD">Nombre:</string>
+    <string name="apellidoD">Apellido:</string>
+    <string name="edadD">Edad:</string>
+    <string name="generoD">Género:</string>
+    <string name="inserte">Inserte los datos para agregarlos a la base de datos</string>
+    <string name="bienvenida">¡Hola, bienvenido!</string>
+    <string name="opciones">Opciones:</string>
+    <string name="read">Por favor llene los datos a continuación para mostrar su información completa.</string>
+    <string name="TuInfo">Su información:</string>
+    <string name="buscar">Buscar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="delete">Por favor busque el nombre y apellido de la persona a eliminar de la base de datos.</string>
+    <string name="update">Busque nombre y apellido de la persona a la cual se requiere actualizar sus datos. (No se puede editar nombre ni apellido)</string>
+</resources>
