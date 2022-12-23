@@ -3,10 +3,9 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         require_once("conexion_bdd.php");
 
-        $Nombre = $_GET['Nombre'];
-        $Apellido = $_GET['Apellido'];
+        $ID = $_GET['ID'];
 
-        $query = "SELECT * FROM app_movil WHERE Nombre = '$Nombre' && Apellido = '$Apellido'";
+        $query = "SELECT * FROM app_movil WHERE ID = '$ID'";
         $result = $mysql->query($query);
 
         if($mysql->affected_rows > 0){

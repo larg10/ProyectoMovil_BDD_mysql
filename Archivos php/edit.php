@@ -6,8 +6,9 @@
         $Apellido = $_POST['Apellido'];
         $Edad = $_POST['Edad'];
         $Genero = $_POST['Género'];
+        $ID = $_POST['ID'];
 
-        $query = "UPDATE app_movil SET Nombre = '$Nombre', Apellido = '$Apellido', Edad = '$Edad', Género = '$Genero' WHERE Nombre = '$Nombre' && Apellido = '$Apellido'";
+        $query = "UPDATE app_movil SET Nombre = '$Nombre', Apellido = '$Apellido', Edad = '$Edad', Género = '$Genero' WHERE ID = '$ID'";
         $result = $mysql->query($query);
 
         if($mysql->affected_rows > 0){

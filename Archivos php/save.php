@@ -3,12 +3,13 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         require_once("conexion_bdd.php");
 
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $edad = $_POST['edad'];
-        $genero = $_POST['genero'];
+        $nombre = $_POST['Nombre'];
+        $apellido = $_POST['Apellido'];
+        $edad = $_POST['Edad'];
+        $genero = $_POST['Género'];
+        $ID = $_POST['ID'];
 
-        $query = "INSERT INTO app_movil (Nombre, Apellido, Edad, Género) VALUES ('$nombre','$apellido','$edad','$genero')";
+        $query = "INSERT INTO app_movil (Nombre, Apellido, Edad, Género, ID) VALUES ('$nombre','$apellido','$edad','$genero','$ID')";
         $result = $mysql->query($query);
 
         if($result == TRUE){

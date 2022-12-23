@@ -12,8 +12,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +26,7 @@ public class Insertar extends AppCompatActivity {
 
     EditText nombre, apellido, edad, genero, ID;
     RequestQueue requestQueue;
+    boolean ocupado = false;
 
     private static final String URL1 = "http://192.168.0.6/intento_movil/save.php";
 
@@ -40,11 +45,14 @@ public class Insertar extends AppCompatActivity {
     }
 
     public void Create(View view){
+        ocupado = false;
         String nom = nombre.getText().toString().trim();
         String ap = apellido.getText().toString().trim();
         int ed = Integer.parseInt(edad.getText().toString().trim());
         String gen = genero.getText().toString().trim();
         String id = ID.getText().toString().trim();
+
+        buscarInsertar();
 
         crear(nom,ap,ed,gen,id);
 
@@ -55,35 +63,63 @@ public class Insertar extends AppCompatActivity {
         ID.setText("");
     }
 
-    private void crear( final String nombre, final String apellido, final int edad, final String genero, final String ID) {
-        StringRequest stringRequest = new StringRequest(
-                Request.Method.POST,
-                URL1,
-                new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(Insertar.this, "Insertados con éxito",Toast.LENGTH_SHORT).show();
-            }
-        },
-                new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Insertar.this, "No pude :C",Toast.LENGTH_SHORT).show();
-            }
-        }
-        ){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("Nombre", nombre);
-                params.put("Apellido",apellido);
-                params.put("Edad", String.valueOf(edad));
-                params.put("Género",genero);
-                params.put("ID",ID);
-                return params;
-            }
-        };
+    public void buscarInsertar() {
 
-        requestQueue.add(stringRequest);
+        String id = ID.getText().toString().trim();
+
+        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Toast.makeText(Insertar.this, "Este ID está ocupado por otra persona, elija uno nuevo.",Toast.LENGTH_SHORT).show();
+                        ocupado = true;
+                        return;
+                    }
+                }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error){
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
     }
-}
+
+    private void crear( final String nombre, final String apellido, final int edad, final String genero, final String ID) {
+
+            StringRequest stringRequest = new StringRequest(
+                    Request.Method.POST,
+                    URL1,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            if(!ocupado) {
+                                Toast.makeText(Insertar.this, "Insertados con éxito", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            if(ocupado) {
+                                Toast.makeText(Insertar.this, "No se pudieron insertar los datos.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("Nombre", nombre);
+                    params.put("Apellido", apellido);
+                    params.put("Edad", String.valueOf(edad));
+                    params.put("Género", genero);
+                    params.put("ID", ID);
+                    return params;
+                }
+            };
+            requestQueue.add(stringRequest);
+        }
+    }

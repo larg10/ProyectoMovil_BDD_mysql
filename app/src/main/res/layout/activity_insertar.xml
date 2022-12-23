@@ -14,7 +14,7 @@
         android:background="@drawable/fondo_edittext"
         android:ems="10"
         android:hint="@string/ID"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +94,7 @@
         android:id="@+id/bttnInsertarBDD"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/bttn_redondo_blue"
         android:onClick="Create"
         android:text="@string/insertar"
@@ -104,4 +104,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtIDCreate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
