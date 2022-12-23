@@ -53,7 +53,8 @@ public class Actualizar extends AppCompatActivity {
         String id;
         id = etID.getText().toString();
 
-        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        //String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        String URL2 = "https://bdmovil.000webhostapp.com/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,
@@ -95,7 +96,9 @@ public class Actualizar extends AppCompatActivity {
             final String Genero = tvGenero.getText().toString();
             final String ID = etID.getText().toString();
 
-            String URLEdit = "http://192.168.0.6/intento_movil/edit.php";
+            //String URLEdit = "http://192.168.0.6/intento_movil/edit.php";
+            String URLEdit = "https://bdmovil.000webhostapp.com/edit.php";
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URLEdit,
                     new Response.Listener<String>() {
                         @Override

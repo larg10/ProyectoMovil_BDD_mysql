@@ -45,7 +45,8 @@ public class Leer extends AppCompatActivity {
         String id;
         id = getID.getText().toString();
 
-        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        //String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        String URL2 = "https://bdmovil.000webhostapp.com/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,

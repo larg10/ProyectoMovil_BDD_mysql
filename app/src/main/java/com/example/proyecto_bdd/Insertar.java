@@ -28,7 +28,8 @@ public class Insertar extends AppCompatActivity {
     RequestQueue requestQueue;
     boolean ocupado = false;
 
-    private static final String URL1 = "http://192.168.0.6/intento_movil/save.php";
+    //private static final String URL1 = "http://192.168.0.6/intento_movil/save.php";
+    private static final String URL1 = "https://bdmovil.000webhostapp.com/save.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,8 @@ public class Insertar extends AppCompatActivity {
 
         String id = ID.getText().toString().trim();
 
-        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        //String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        String URL2 = "https://bdmovil.000webhostapp.com/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,

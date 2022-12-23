@@ -56,7 +56,8 @@ public class Eliminar extends AppCompatActivity {
         id = etID.getText().toString();
         ID = id;
 
-        String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        //String URL2 = "http://192.168.0.6/intento_movil/fetch.php?ID=" + id;
+        String URL2 = "https://bdmovil.000webhostapp.com/fetch.php?ID=" + id;
 
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL2, null,
@@ -94,7 +95,9 @@ public class Eliminar extends AppCompatActivity {
     @SuppressLint("NotConstructor")
     public void Eliminar(View view){
         if(busco == true) {
-            String URLDelete = "http://192.168.0.6/intento_movil/delete.php";
+            //String URLDelete = "http://192.168.0.6/intento_movil/delete.php";
+            String URLDelete = "https://bdmovil.000webhostapp.com/delete.php";
+
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URLDelete,
                     new Response.Listener<String>() {
                         @Override
